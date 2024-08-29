@@ -6,7 +6,7 @@
     "build": "vite build",
     "serve": "vite preview --port 8080",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
