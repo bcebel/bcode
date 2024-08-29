@@ -1,7 +1,9 @@
 import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
+import bg from './bg.jpg';
+import me from './bce.jpg';
+import pluto from './pluto.webp';
 // Setup
 
 const scene = new THREE.Scene();
@@ -20,7 +22,7 @@ camera.position.setX(-3);
 renderer.render(scene, camera);
 
 // Torus
-const donutTexture = new THREE.TextureLoader().load("bg.jpg");
+const donutTexture = new THREE.TextureLoader().load(bg);
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ map: donutTexture });
 const torus = new THREE.Mesh(geometry, material);
@@ -61,12 +63,12 @@ Array(500).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('bg.jpg');
+const spaceTexture = new THREE.TextureLoader().load(bg);
 scene.background = spaceTexture;
 
 // Avatar
 
-const jeffTexture = new THREE.TextureLoader().load('bce.jpg');
+const jeffTexture = new THREE.TextureLoader().load(me);
 
 const jeff = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: jeffTexture }));
 
@@ -74,7 +76,7 @@ scene.add(jeff);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('pluto.webp');
+const moonTexture = new THREE.TextureLoader().load(pluto);
 const normalTexture = new THREE.TextureLoader().load('normal.jpg');
 
 const moon = new THREE.Mesh(
